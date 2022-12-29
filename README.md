@@ -20,12 +20,10 @@ Menu Service v1
 Зависимости
 ---
 - Django==4.1.3
-- djangorestframework==3.14.0  
 - psycopg2==2.9.5
-- django-filter==22.1
 - django-debug-toolbar==3.8.1
 - django-mptt==0.14.0
-
+- django-nested-admin==4.0.2
 
 Запуск проекта
 ---
