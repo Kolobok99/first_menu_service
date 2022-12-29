@@ -1,0 +1,20 @@
+{% load mptt_tags %}
+{% load static %}
+<style>
+    .vis {
+        display: none;
+    }
+</style>
+
+<ul class="root">
+    {% recursetree menus %}
+            <li class="{{ node.parent.pk }}">
+                <a class='parent_{{ node.pk }}' href="#{{node.title}}">{{node.title}}</a>
+                    {% if not node.is_leaf_node %}
+                        <ul class="parent_{{ node.pk }} vis">
+                            {{ children }}
+                        </ul>
+                    {% endif %}
+            </li>
+    {% endrecursetree %}
+</ul>

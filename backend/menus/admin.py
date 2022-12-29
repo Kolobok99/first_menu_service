@@ -2,11 +2,11 @@ import nested_admin
 
 from django.contrib import admin
 
-from .models import MenuItem
+from .models import Menu
 
 
 class MenuItemInline(nested_admin.NestedStackedInline):
-    model = MenuItem
+    model = Menu
     extra = 3
 
 
@@ -14,7 +14,4 @@ class MenuItemAdmin(nested_admin.NestedModelAdmin):
     inlines = [MenuItemInline]
 
 
-admin.site.register(MenuItem, MenuItemAdmin)
-
-
-admin.site.register(MenuItem, MenuItemAdmin)
+admin.site.register(Menu, MenuItemAdmin)

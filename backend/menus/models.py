@@ -2,10 +2,10 @@ from mptt.fields import TreeForeignKey
 from mptt.models import MPTTModel
 
 from django.db import models
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 
 
-class MenuItem(MPTTModel):
+class Menu(MPTTModel):
     """модель элемента меню"""
 
     title = models.CharField("Заголовок", max_length=64)
@@ -14,7 +14,8 @@ class MenuItem(MPTTModel):
                             related_name='children')
 
     def get_absolute_url(self):
-        return reverse_lazy('menu-retrieve', kwargs={'pk': self.pk})
+        if self.children.all():
+            return reverse('menu-detail', kwargs={'title': self.title})
 
     def __str__(self):
         return self.title
@@ -25,3 +26,5 @@ class MenuItem(MPTTModel):
     class Meta:
         verbose_name = 'Элемент меню'
         verbose_name_plural = 'Элементы меню'
+
+
