@@ -41,7 +41,7 @@ Menu Service v1
 
 6. Запустить проект
 
-		docker compose -f docker-compose.prod.yml up
+		docker compose up
 
 
 
