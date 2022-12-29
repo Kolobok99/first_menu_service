@@ -42,4 +42,12 @@ Menu Service v1
 		docker compose up
 
 
+Конечные точки:
+---
+	- GET  menus/ - получить список всех меню
+    - GET menu/<str:title>/ - получить стр. меню по ее title
+
+
+
+
 
